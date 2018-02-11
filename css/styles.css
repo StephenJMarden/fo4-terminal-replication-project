@@ -1,0 +1,37 @@
+* {
+  border: none;
+  padding: 0;
+  margin: 0; }
+
+body {
+  color: #1aff80;
+  background: #1a1a1a; }
+
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px; }
+  nav ul {
+    list-style: none; }
+    nav ul li a {
+      text-decoration: none;
+      color: #1aff80; }
+
+#puzzle-div {
+  height: 16em;
+  font-size: 20px;
+  letter-spacing: 2px; }
+
+#column-1 {
+  float: left;
+  margin-right: 0.5em; }
+
+.pass-column, .mem-column {
+  display: inline-block; }
+
+.mems, .pass {
+  display: block;
+  padding: 0 0.25em; }
+
+/*# sourceMappingURL=styles.css.map */

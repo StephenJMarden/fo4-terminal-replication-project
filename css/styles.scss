@@ -1,0 +1,54 @@
+$fallout-green: rgb(26, 255, 128);
+$fallout-blue: rgb(46, 207, 255);
+$fallout-amber: rgb(255, 182, 66);
+$fallout-white: rgb(192, 255, 255);
+$almost-black: rgb(26, 26, 26);
+
+* {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: $fallout-green;
+    background: $almost-black;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    
+    ul {
+        list-style: none;
+        
+        li {
+            a {
+                text-decoration: none;
+                color: $fallout-green;
+            }
+        }
+    }
+}
+
+#puzzle-div {
+    height: 16em;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+#column-1 {
+    float: left;
+    margin-right: 0.5em;
+}
+
+.pass-column, .mem-column {
+    display: inline-block;
+}
+
+.mems, .pass {
+    display: block;
+    padding: 0 0.25em;
+}
