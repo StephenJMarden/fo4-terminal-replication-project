@@ -1,0 +1,96 @@
+$fallout-green: rgb(26, 255, 128);
+$fallout-blue: rgb(46, 207, 255);
+$fallout-amber: rgb(255, 182, 66);
+$fallout-white: rgb(192, 255, 255);
+$almost-black: rgb(26, 26, 26);
+
+* {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: $fallout-green;
+    //background: $almost-black;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    
+    ul {
+        list-style: none;
+        
+        li {
+            a {
+                text-decoration: none;
+                color: $fallout-green;
+            }
+        }
+    }
+}
+
+#terminal-screen {
+    display: inline-block;
+    background: $almost-black;
+    font-size: 16px;
+    letter-spacing: 3px;
+    padding: 50px;
+}
+
+#puzzle-div {
+    display: inline-block;
+}
+
+.column {
+    display: inline-block;
+}
+
+#column-1 {
+    margin-right: 8px;
+}
+
+.pass-column, .mem-column {
+    display: inline-block;
+}
+
+.mems, .pass {
+    display: block;
+    padding: 2px 4px 2px 0;
+    text-align: justify;
+}
+
+h1, h2 {
+    margin: 8px 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+#working-console {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 345px;
+    overflow: hidden;
+    
+    #console-content {
+        position: absolute;
+        bottom: -6px;
+    }
+    
+    .console-line {
+        display: block;
+        padding: 2px 4px;
+    }
+}
