@@ -4,7 +4,9 @@
   margin: 0; }
 
 body {
-  color: #1aff80; }
+  color: #1aff80;
+  background: #1a1a1a;
+  text-align: center; }
 
 nav {
   position: absolute;
@@ -17,15 +19,26 @@ nav {
       text-decoration: none;
       color: #1aff80; }
 
+#terminal {
+  display: inline-block;
+  text-align: left;
+  margin-top: 5em;
+  padding: 5em;
+  border-radius: 20px;
+  background: gray; }
+
 #terminal-screen {
   display: inline-block;
   background: #1a1a1a;
   font-size: 16px;
-  letter-spacing: 3px;
-  padding: 50px; }
+  padding: 50px;
+  font-weight: bold;
+  border: 1px solid #1aff80;
+  border-radius: 10px; }
 
 #puzzle-div {
-  display: inline-block; }
+  display: inline-block;
+  word-spacing: 1px; }
 
 .column {
   display: inline-block; }
@@ -39,7 +52,26 @@ nav {
 .mems, .pass {
   display: block;
   padding: 2px 4px 2px 0;
-  text-align: justify; }
+  text-transform: uppercase; }
+
+.pass {
+  width: 240px; }
+  .pass .jd, .pass .letter {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 2px; }
+
+.jd, .word {
+  cursor: pointer; }
+  .jd:hover, .word:hover {
+    color: #1a1a1a;
+    background: #1aff80; }
+
+.wordActive {
+  color: #1a1a1a;
+  background: #1aff80; }
 
 h1, h2 {
   margin: 8px 0;
@@ -55,14 +87,75 @@ h2 {
 #working-console {
   display: inline-block;
   position: relative;
-  width: 200px;
+  width: 270px;
   height: 345px;
-  overflow: hidden; }
+  overflow: hidden;
+  margin-left: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px; }
   #working-console #console-content {
     position: absolute;
-    bottom: -6px; }
+    bottom: 20px; }
+  #working-console #guess-wrapper {
+    position: absolute;
+    bottom: -4px;
+    color: #1aff80;
+    padding: 2px 4px;
+    text-transform: uppercase;
+    font-weight: bold; }
   #working-console .console-line {
     display: block;
     padding: 2px 4px; }
+  #working-console .new-game-button {
+    cursor: pointer; }
+
+#terminal-screen {
+  position: relative; }
+
+#settings-button {
+  display: inline-block;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 32px;
+  cursor: pointer; }
+
+#settings-window {
+  position: absolute;
+  display: inline-block;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  width: 250px;
+  height: 200px;
+  display: none;
+  background: #1a1a1a;
+  border: 1px solid #1aff80;
+  border-radius: 10px;
+  margin-top: -1px;
+  margin-right: -1px; }
+  #settings-window #settings-close {
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 32px;
+    cursor: pointer; }
+  #settings-window ul {
+    list-style: none;
+    margin-top: 0.9em; }
+    #settings-window ul h1 {
+      font-size: 32px;
+      font-weight: bold; }
+    #settings-window ul #game-difficulty {
+      cursor: pointer; }
+      #settings-window ul #game-difficulty:hover {
+        color: #1a1a1a;
+        background: #1aff80; }
+    #settings-window ul .new-game-button {
+      cursor: pointer; }
 
 /*# sourceMappingURL=styles.css.map */

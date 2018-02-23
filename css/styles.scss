@@ -12,7 +12,8 @@ $almost-black: rgb(26, 26, 26);
 
 body {
     color: $fallout-green;
-    //background: $almost-black;
+    background: $almost-black;
+    text-align: center;
 }
 
 nav {
@@ -33,16 +34,28 @@ nav {
     }
 }
 
+#terminal {
+    display: inline-block;   
+    text-align: left;
+    margin-top: 5em;
+    padding: 5em;
+    border-radius: 20px;
+    background: gray;
+}
+
 #terminal-screen {
     display: inline-block;
     background: $almost-black;
     font-size: 16px;
-    letter-spacing: 3px;
     padding: 50px;
+    font-weight: bold;
+    border: 1px solid $fallout-green;
+    border-radius: 10px;
 }
 
 #puzzle-div {
     display: inline-block;
+    word-spacing: 1px;
 }
 
 .column {
@@ -60,7 +73,31 @@ nav {
 .mems, .pass {
     display: block;
     padding: 2px 4px 2px 0;
-    text-align: justify;
+    text-transform: uppercase;
+}
+
+.pass {
+    width: 240px;
+    
+    .jd, .letter {
+        display: inline-block;
+        width: 16px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0 2px;
+    }
+}
+
+.jd, .word {
+    cursor: pointer;
+    &:hover {
+        color: $almost-black;
+        background: $fallout-green;
+    }
+}
+.wordActive {
+    color: $almost-black;
+    background: $fallout-green;
 }
 
 h1, h2 {
@@ -80,17 +117,100 @@ h2 {
 #working-console {
     display: inline-block;
     position: relative;
-    width: 200px;
+    width: 270px;
     height: 345px;
     overflow: hidden;
+    margin-left: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
     
     #console-content {
         position: absolute;
-        bottom: -6px;
+        bottom: 20px;
+    }
+    #guess-wrapper {
+        position: absolute;
+        bottom: -4px;
+        color: $fallout-green;
+        padding: 2px 4px;
+        text-transform: uppercase;
+        font-weight: bold;
     }
     
     .console-line {
         display: block;
         padding: 2px 4px;
+    }
+    
+    .new-game-button {
+        cursor: pointer;
+    }
+}
+
+#terminal-screen {
+    position: relative;
+}
+
+#settings-button {
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+#settings-window {
+    position: absolute;
+    display: inline-block;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    width: 250px;
+    height: 200px;
+    display: none;
+    background: $almost-black;
+    border: 1px solid $fallout-green;
+    border-radius: 10px;
+    margin-top: -1px;
+    margin-right: -1px;
+    
+    #settings-close {
+        display: inline-block;
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        font-size: 32px;
+        cursor: pointer;
+    }
+    
+    ul {
+        list-style: none;
+        margin-top: 0.9em;
+        
+        li {
+            
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        #game-difficulty {
+            cursor: pointer;
+            
+            &:hover {
+                color: $almost-black;
+                background: $fallout-green;
+            }
+        }
+        
+        .new-game-button {
+            cursor: pointer;
+        }
     }
 }

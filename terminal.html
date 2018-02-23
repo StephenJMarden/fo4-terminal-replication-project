@@ -5,24 +5,39 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta name="author" content="name">
       <meta name="description" content="description here">
-      <meta name="keywords" content="keywords,here">
+      <meta name="keywords" content="keywords here">
       
       <title>Fallout 4 Terminal Replication Project</title>
       <link rel="stylesheet" href="./css/styles.css" type="text/css">
   </head>
   <body>
-      <nav>
-          <ul>
-              <li><a href="">Settings</a></li>
-              <li><a href="">Leaderboard</a></li>
-          </ul>
-      </nav>
-      
       <div id="terminal">
           <div id="terminal-screen">
+              <div id="settings-button">
+                  <i class="fas fa-cog"></i>
+              </div>
+              
+              <div id="settings-window">
+                  <div id="settings-close">
+                      <i class="fas fa-times"></i>
+                  </div>
+                  
+                  <ul>
+                    <li>
+                        <h1>Settings</h1>
+                    </li>
+                    <li>
+                        <h2 class="new-game-button">New Game</h2>
+                    </li>
+                    <li>
+                        <h2>Difficulty: <span id="game-difficulty">NOVICE</span></h2>
+                    </li>
+                  </ul>
+              </div>
+              
               <h1 id="title">Fallout 4 Terminal Replication Project</h1>
               <h2>Password Required</h2>
-              <h2>Attempts Remaining: <span id="attempts-remaining">█ █</span></h2>
+              <h2>Attempts Remaining: <span id="attempts-remaining"></span></h2>
               <div id="puzzle-div">
                   <div id="column-1" class="column">
                       <div class="mem-column">
@@ -44,22 +59,7 @@
                           <span class="mems">0x4FF0</span>
                       </div>
                       <div class="pass-column">
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
+                          
                       </div>
                   </div>
                   <div id="column-2" class="column">
@@ -82,37 +82,21 @@
                           <span class="mems">0x4FF0</span>
                       </div>
                       <div class="pass-column">
-                          <span class="pass">%$(@#)<span class="word">FACES</span>></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
-                          <span class="pass">%$(@#)SEVEN></span>
+                          
                       </div>
                   </div>
               </div>
               <div id="working-console">
-                  <div id="console-content">
-                      <div class="console-line">&gt;FACES</div>
-                      <div class="console-line">&gt;Entry denied</div>
-                      <div class="console-line">&gt;Likeness=2</div>
-                      
-                  </div>
+                  <div id="console-content"></div>
+                  <div id="guess-wrapper">&gt;</div>
               </div>
           </div>
       </div>
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js" type="text/javascript"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="./js/words.js" type="text/javascript"></script>
+  <script src="./js/terminal.js" type="text/javascript"></script>
   </body>
 </html>
