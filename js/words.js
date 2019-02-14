@@ -306,7 +306,7 @@ words = {
             "morsel",
             "dilute",
             "infect",
-            "critic",
+            "critic"
         ],
         b: [
             "garage",
@@ -408,23 +408,79 @@ words = {
             "stable",
             "heroin",
             "affect",
-            "active",
+            "active"
         ]
     },
     expert: {
         a: [
-            
+
         ],
         b: [
-            
+
         ]
     },
     master: {
         a: [
-            
+
         ],
         b: [
-            
+
+        ]
+    },
+    valentine: {
+        a: [
+            "adores",
+            "angels",
+            "beauty",
+            "caring",
+            "commit",
+            "courts",
+            "cupids",
+            "dating",
+            "dearly",
+            "desire",
+            "dreamy",
+            "everly",
+            "favors",
+            "friend",
+            "flower",
+            "giving",
+            "hugger",
+            "kisses",
+            "loving",
+            "poetry",
+            "suitor",
+            "truely",
+            "tulips",
+            "warmth",
+            "wonder"
+        ],
+        b: [
+            "always",
+            "adores",
+            "bonded",
+            "cherub",
+            "couple",
+            "cozied",
+            "charms",
+            "darlin",
+            "deeply",
+            "devote",
+            "enamor",
+            "excite",
+            "flirts",
+            "flames",
+            "fondly",
+            "hearts",
+            "jewels",
+            "lilies",
+            "lovers",
+            "senses",
+            "sweets",
+            "trusts",
+            "unique",
+            "wooing",
+            "yearns"
         ]
     }
 }

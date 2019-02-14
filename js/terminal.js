@@ -20,7 +20,7 @@ eventHandlers();
 function getWords(difficulty) {
     var selectedWords = [];
     var numWords;
-    
+
     switch (difficulty) {
         case "novice":
             numWords = 16;
@@ -34,10 +34,13 @@ function getWords(difficulty) {
         case "master":
             numWords = 10;
             break;
+        case "valentine":
+            numWords = 12;
+            break;
         default:
             console.log("Error: Difficulty not found");
     }
-    
+
     var positions = [];
     var length = window.words[difficulty][version].length;
     var initialNumber = Math.floor(Math.random() * length);
@@ -51,7 +54,7 @@ function getWords(difficulty) {
         positions.push(number);
         selectedWords.push(window.words[difficulty][version][number]);
     }
-    
+
     return selectedWords;
 }
 
@@ -59,7 +62,7 @@ function getHintCount(difficulty) {
     switch(difficulty) {
         case "novice":
             return 6;
-        case "advanced":
+        case "advanced", "valentine":
             return 5;
         case "expert", "master":
             return 4;
@@ -94,7 +97,7 @@ function getWordLength(difficulty, version) {
                 length = 5;
             }
             break;
-        case "advanced":
+        case "advanced", "valentine":
             length = 6;
             break;
         case "expert":
@@ -115,7 +118,7 @@ function constructLines(difficulty, wordList) {
     var lines = [];
     for(var i = 0; i < LINE_NUMBER; i++) {
         var hasWord = false;
-        
+
         if(wordList.length > 0) {
             if(wordList.length < (LINE_NUMBER - i)) {            //if there are less words than lines remaining to fill, randomly choose if it should fill the line with a word
                 var random = Math.floor(Math.random() * 2);
@@ -124,16 +127,16 @@ function constructLines(difficulty, wordList) {
                 hasWord = true;
             } else if(wordList.length > (LINE_NUMBER - i)) {
                 console.log("Error: Ran out of lines, something went wrong . . .");
-            }    
+            }
         }
-        
+
         var curLine;
         if(hasWord) {
             curLine = wordList.pop();
         } else {
             curLine = getRandomJunkData(null, null);
         }
-        
+
         while(curLine.length < LINE_LENGTH) {
             var random = Math.floor(Math.random() * 2);
             if(random === 0) {
@@ -155,19 +158,19 @@ function getRandomJunkData(previousCharacter, nextCharacter) {
         return junkData[Math.floor(Math.random() * junkData.length)];
     }
     var selection = getJunkData();
-    
+
     if(previousCharacter === "<") {
         while(selection === "?" || selection === "/") {
             selection = getJunkData();
         }
     }
-    
+
     if(nextCharacter === "?" || nextCharacter === "/") {
         while(selection === "<") {
             selection = getJunkData();
         }
     }
-    
+
     return selection;
 }
 
@@ -207,7 +210,7 @@ function hasHintEnd(char, line) {
             end = ")";
             break;
     }
-    
+
     var start = false;
     var lineBuffer = "";
     for(var i = 0; i < line.length; i++) {
@@ -230,7 +233,7 @@ function buildPuzzle(lines) {
     var columnSize = LINE_NUMBER / 2;
     $("#column-1 > .pass-column").empty();
     $("#column-2 > .pass-column").empty();
-    
+
     for(var i = 0; i < columnSize; i++) {
         var newLine = formatLine(lines[i]);
         $("#column-1 > .pass-column").append(newLine);
@@ -246,10 +249,10 @@ function formatLine(line) {
     var lineEnd = "<span class='line-end'></span></span>";
     var itemStart = "<span class=";
     var itemEnd = "</span>";
-    
+
     var pass = line.split('');
     var newLine = [lineStart];
-    
+
     for(var i = 0; i < pass.length; i++) {
         if(isJunkData(line[i])) {
             var item = itemStart + "'jd'>" + line[i] + itemEnd;
@@ -271,7 +274,7 @@ function formatLine(line) {
     }
     newLine.push(lineEnd);
     newLine = newLine.join('');
-    
+
     return newLine;
 }
 
@@ -304,7 +307,7 @@ function checkPass(guess, answer, list) {
     if(flag === false) {
         return -2;
     }
-    
+
     if(guess === answer) {
         return -1;
     } else {
@@ -362,20 +365,20 @@ function cycleDifficulty(diff) {
         case "novice":
             newDifficulty = "advanced";
             break;
-        /*case "advanced":
-            newDifficulty = "expert";
-            break;
-        case "expert":
+        /*case "expert":
             newDifficulty = "master";
             break;
         case "master":
             newDifficulty = "novice";
             break;*/
         case "advanced":
-            newDifficulty = "novice";
+            newDifficulty = "valentine";
+            break;
+        case "valentine":
+            newDifficulty = "novice"
             break;
     }
-    
+
     difficulty = newDifficulty;
     $("#game-difficulty").text(newDifficulty.toUpperCase());
 }
@@ -386,7 +389,7 @@ function onInit() {
     for(var i = 0; i < NUM_TRIES; i++) {
         $("#attempts-remaining").append("█ ");
     }
-    
+
     buildPuzzle(lines);
 }
 
@@ -400,7 +403,7 @@ function drawAttemptsRemaining(attempts) {
 function eventHandlers() {
     $(".pass-column").on("click", ".word", function() {
         var $this = $(this);
-        
+
         if(tries > 0) {
             var guessText = $this.text();
             var correctPass = checkPass(guessText, password);
@@ -420,13 +423,13 @@ function eventHandlers() {
             }
         }
     });
-    
+
     $(".pass-column").on("click", ".jd", function() {
         var $this = $(this);
         var data = $this.text();
         $this.text("~");
         $("#console-content").append("<span class='console-line'>&gt; " + data + "</span>");
-        
+
         if(isHintStart(data)) {
             var $parent = $this.parent();
             var parentText = $parent.text();
@@ -438,22 +441,22 @@ function eventHandlers() {
             }
         }
     });
-    
+
     $(".new-game-button").on("click", function() {
         refresh();
     });
     $("#working-console").on("click", ".new-game-button", function() {
         refresh();
     })
-    
+
     $("#settings-button").on("click", function() {
         $("#settings-window").fadeToggle();
     });
-    
+
     $("#settings-close").on("click", function() {
         $("#settings-window").fadeToggle();
     });
-    
+
     $("#game-difficulty").on("click", function() {
         cycleDifficulty(difficulty);
     });
@@ -468,6 +471,6 @@ function refresh() {
     lines = constructLines(difficulty, wordList);
     tries = NUM_TRIES;
     hints = getHintCount(difficulty);
-    
+
     onInit();
 }
