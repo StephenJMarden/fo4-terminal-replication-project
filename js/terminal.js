@@ -443,6 +443,7 @@ function eventHandlers() {
     });
 
     $(".new-game-button").on("click", function() {
+        $("#settings-window").fadeToggle();
         refresh();
     });
     $("#working-console").on("click", ".new-game-button", function() {
